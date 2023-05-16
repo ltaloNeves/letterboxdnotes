@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Nota</title>
+  <script>
+    function calcularNota() {
+      var notaMaxima = 5;
+      var nota = notaMaxima;
+      
+      var entediadoCheckbox = document.getElementById("entediado");
+      if (entediadoCheckbox.checked) {
+        nota -= 0.2;
+      }
+      
+      var efeitosBonsCheckbox = document.getElementById("efeitosBons");
+      if (!efeitosBonsCheckbox.checked) {
+        nota -= 0.2;
+      }
+      
+      var roteiroBomCheckbox = document.getElementById("roteiroBom");
+      if (!roteiroBomCheckbox.checked) {
+        nota -= 0.2;
+      }
+      
+      var assistirNovamenteCheckbox = document.getElementById("assistirNovamente");
+      if (!assistirNovamenteCheckbox.checked) {
+        nota -= 0.2;
+      }
+      
+      if (nota < 0) {
+        nota = 0;
+      }
+      
+      var resultadoDiv = document.getElementById("resultado");
+      resultadoDiv.textContent = "Sua nota final é: " + nota.toFixed(1);
+    }
+  </script>
+</head>
+<body>
+  <h1>Calculadora de Nota</h1>
+  
+  <input type="checkbox" id="entediado">
+  <label for="entediado">Fiquei entediado durante o filme</label><br>
+  
+  <input type="checkbox" id="efeitosBons">
+  <label for="efeitosBons">Os efeitos do filme são bons</label><br>
+  
+  <input type="checkbox" id="roteiroBom">
+  <label for="roteiroBom">O roteiro do filme é bom</label><br>
+  
+  <input type="checkbox" id="assistirNovamente">
+  <label for="assistirNovamente">Assistiria novamente</label><br>
+  
+  <button onclick="calcularNota()">Calcular Nota</button>
+  
+  <div id="resultado"></div>
+</body>
+</html>
